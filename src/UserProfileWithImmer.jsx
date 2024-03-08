@@ -44,7 +44,7 @@ export const UserProfileWithImmer = () => {
             <button onClick={toggleNewsletterSubscription}>Subscribe/Unsubscribe from newsletter</button>
 
             <div>
-                <p>Info for {userProfile.name}</p>
+                <h2>Info for {userProfile.name}</h2>
                 <p>{userProfile.contactDetails.phone}</p>
                 <p>{userProfile.contactDetails.address}</p>
                 <p>{userProfile.preferences.newsletter ? "Subscribed" : "Not Subscribed"}</p>
