@@ -45,8 +45,8 @@ export const UserProfileWithImmer = () => {
 
             <div>
                 <h2>Info for {userProfile.name}</h2>
-                <p>{userProfile.contactDetails.phone}</p>
-                <p>{userProfile.contactDetails.address}</p>
+                <p>Phone: {userProfile.contactDetails.phone}</p>
+                <p>Address: {userProfile.contactDetails.address}</p>
                 <p>{userProfile.preferences.newsletter ? "Subscribed" : "Not Subscribed"}</p>
             </div>
         </>

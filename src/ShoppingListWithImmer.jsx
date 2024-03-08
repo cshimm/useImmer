@@ -31,12 +31,13 @@ export const ShoppingListWithImmer = () => {
                     item.details.category = 'updated category'
                     item.details.notes = 'updated notes'
                 }
+                return item
             });
         })
     }
     const removeItem = (id) => {
         const existing = shoppingList.filter(item => item.id === id)[0];
-        if (existing.length === 0) return
+        if (!existing) return
         const existingIndex = shoppingList.indexOf(existing)
         setShoppingList(draft => {
             draft.splice(existingIndex, 1)
