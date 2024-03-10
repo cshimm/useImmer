@@ -2,13 +2,13 @@ import {useImmer} from "use-immer";
 import {useState} from "react";
 
 export const ShoppingListWithImmer = () => {
-    const [name, setName] = useState('')
-    const [quantity, setQuantity] = useState('')
-    const [category, setCategory] = useState('')
-    const [notes, setNotes] = useState('')
+    const [name, setName] = useState('');
+    const [quantity, setQuantity] = useState('');
+    const [category, setCategory] = useState('');
+    const [notes, setNotes] = useState('');
     const [shoppingList, setShoppingList] = useImmer([]);
     const addItem = (name = '', qty = 1, category = '', notes = '') => {
-        const id = Date.now()
+        const id = Date.now();
         const newItem = {
             id,
             name,
@@ -17,7 +17,7 @@ export const ShoppingListWithImmer = () => {
                 category,
                 notes
             }
-        }
+        };
         // I use useImmer to easily update the list of shopping items with the draft argument.
         setShoppingList(draft => {
             draft.push(newItem);
@@ -37,19 +37,19 @@ export const ShoppingListWithImmer = () => {
                     item.details.category = 'updated category';
                     item.details.notes = 'updated notes';
                 }
-                return item
+                return item;
             });
         })
     }
     const removeItem = (id) => {
         //Check for an existing item who's id matches the id passed in
         const existing = shoppingList.filter(item => item.id === id)[0];
-        if (!existing) return
+        if (!existing) return;
         // If there is a matching item then save its index and splice it out of the
         // items array.
-        const existingIndex = shoppingList.indexOf(existing)
+        const existingIndex = shoppingList.indexOf(existing);
         setShoppingList(draft => {
-            draft.splice(existingIndex, 1)
+            draft.splice(existingIndex, 1);
         });
     }
     return (
